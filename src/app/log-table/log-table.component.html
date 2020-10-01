@@ -1,0 +1,73 @@
+<label for="" class="control-label" style="text-align:center; font-weight:500;margin:auto">Select
+  Log:-&nbsp;&nbsp;</label>
+<select name="dataDetails" id="dataDetails" required [(ngModel)]="selectedType" (change)="getLogData($event)">
+  <option value="select" [disabled]="true">Select Log type</option>
+  <option value="redirectLog">Redirect Log Table</option>
+  <option value="searchLog">Search Log Table</option>
+  <option value="detailRedirect">Detail Redirect Log Table</option>
+</select>
+<br><br>
+
+<div>
+  <table class="table" *ngIf="selectedType == 'redirectLog'">
+    <thead *ngIf="show" class="thead-dark">
+      <tr>
+        <th scope="col">Sl. No.</th>
+        <th scope="col">Time Stamp</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Product Price</th>
+        <th scope="col">Product URL</th>
+        <th scope="col">Session Id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of resData;let j=index">
+        <th>{{j+1}}</th>
+        <td>{{i.TimeStamp | date:'MMMM d, y, h:mm:ss a'}}</td>
+        <td>{{i.redirLog.prodName}}</td>
+        <td>{{i.redirLog.prodPrice}}</td>
+        <td>{{i.redirLog.prodURI}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <table class="table" *ngIf="selectedType == 'searchLog'">
+    <thead *ngIf="show" class="thead-dark">
+      <tr>
+        <th scope="col">Sl. No.</th>
+        <th scope="col">Time Stamp</th>
+        <th scope="col">Search Param</th>
+        <th scope="col">Session Id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of searchData;let j=index">
+        <th>{{j+1}}</th>
+        <td>{{i.TimeStamp | date:'MMMM d, y, h:mm:ss a'}}</td>
+        <td>{{i.searchParam}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <table class="table" *ngIf="selectedType == 'detailRedirect'">
+    <thead *ngIf="show" class="thead-dark">
+      <tr>
+        <th scope="col">Sl. No.</th>
+        <th scope="col">Time Stamp</th>
+        <th scope="col">Redirect Url</th>
+        <th scope="col">Session Id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of detailRedirectData;let j=index">
+        <th>{{j+1}}</th>
+        <td>{{i.TimeStamp| date:'MMMM d, y, h:mm:ss a'}}</td>
+        <td>{{i.redirectUrl}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,59 @@
+<div class="card mb-6">
+    <div class="card-header" style="text-align: center; font-weight: 600;">
+        Portal
+    </div>
+        <h5 class="card-title">Categories</h5>
+    <div class="row no-gutters">
+        <div class="col-md-4"> 
+            <div class="card-body">
+                <p>Electronics & Accesories</p>
+                <ul>
+                    <li class="list" *ngFor="let list of list1">
+                        {{list.name}}
+                        <ul>
+                            <li class="sublist1" (click)="open(sub)" *ngFor="let sub of list.availabilities">
+                                {{sub.name}}<br>
+                                <!-- <button class="btn btn-primary" type="submit">Add Data</button> -->
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-body">
+                <p>Fashion</p>
+                <ul>
+                    <li class="list" *ngFor="let list of list2">
+                        {{list.name}}
+                        <ul>
+                            <li class="sublist1" (click)="open(sub)" *ngFor="let sub of list.availabilities">
+                                {{sub.name}}<br>
+                                <!-- <button class="btn btn-primary" type="submit">Add Data</button> -->
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-body">
+                <p>Home Appliances</p>
+                <ul>
+                    <li class="list" *ngFor="let list of list3">
+                        {{list.name}}
+                        <ul>
+                            <li class="sublist1" (click)="open(sub)" *ngFor="let sub of list.availabilities">
+                                {{sub.name}}<br>
+                                <!-- <button class="btn btn-primary" type="submit">Add Data</button> -->
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
