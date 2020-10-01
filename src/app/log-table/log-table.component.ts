@@ -72,5 +72,6 @@ export class LogTableComponent implements OnInit {
           this.detailRedirectData = data['dbResp'];
         })
     }
+    console.log('Bye');
   }
 }
